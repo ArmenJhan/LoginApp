@@ -27,7 +27,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ITA-Bd-udV">
                                         <rect key="frame" x="0.0" y="49" width="240" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -37,6 +37,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Forgot User Name?" cornerStyle="medium">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="forgotNameAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="evf-tN-AkE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4r1-kc-hgT">
                                 <rect key="frame" x="115.5" y="248" width="89.5" height="44"/>
@@ -45,6 +48,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="logInTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="WOK-MV-TyT"/>
                                     <segue destination="qXQ-Sp-lKd" kind="presentation" id="6vk-bV-6jE"/>
                                 </connections>
                             </button>
@@ -54,6 +58,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Forgot Password?" cornerStyle="medium">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="forgotPasswordAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="W7r-zc-52c"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -71,6 +78,12 @@
                             <constraint firstItem="4r1-kc-hgT" firstAttribute="top" secondItem="2cX-Iq-Ncc" secondAttribute="bottom" constant="15" id="nfN-ea-2YW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="forgotNameButton" destination="Mxq-XC-0Vf" id="QYT-Cn-rYm"/>
+                        <outlet property="forgotPasswordButton" destination="shA-NN-JHm" id="Vai-JF-7Sv"/>
+                        <outlet property="passwordTF" destination="ITA-Bd-udV" id="wob-Fz-o61"/>
+                        <outlet property="userNameTF" destination="4b4-QJ-tgf" id="ipx-Zf-fbj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,9 +92,9 @@
         <!--Welcome View Controller-->
         <scene sceneID="kD7-52-YMZ">
             <objects>
-                <viewController id="qXQ-Sp-lKd" customClass="WelcomeViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="qXQ-Sp-lKd" customClass="WelcomeViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OwD-2F-8gi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2E-y2-Qru">
@@ -97,11 +110,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eay-R0-Xvd">
-                                <rect key="frame" x="107.5" y="403" width="105" height="44"/>
+                                <rect key="frame" x="107.5" y="403" width="105.5" height="44"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log out" cornerStyle="medium">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="rzo-Eb-ZZc" kind="unwind" unwindAction="unwindLogOutTappedFor:" id="qw0-Gr-Mmx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Vo-7n-BWp"/>
@@ -115,8 +131,12 @@
                             <constraint firstItem="Eay-R0-Xvd" firstAttribute="centerX" secondItem="OwD-2F-8gi" secondAttribute="centerX" id="tsM-mg-Hxw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="W2E-y2-Qru" id="RBO-ZX-2Va"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdN-6e-d3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="rzo-Eb-ZZc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="855" y="-28.52112676056338"/>
         </scene>
