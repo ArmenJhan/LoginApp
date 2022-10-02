@@ -14,6 +14,7 @@
 		C002024328E98CAD00DA43F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C002024228E98CAD00DA43F8 /* Assets.xcassets */; };
 		C002024628E98CAD00DA43F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C002024428E98CAD00DA43F8 /* LaunchScreen.storyboard */; };
 		C002024E28E9942500DA43F8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C002024D28E9942500DA43F8 /* WelcomeViewController.swift */; };
+		C0C904C428EA03D20086F29D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C904C328EA03D20086F29D /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C002024528E98CAD00DA43F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C002024728E98CAD00DA43F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C002024D28E9942500DA43F8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		C0C904C328EA03D20086F29D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				C002023B28E98CAC00DA43F8 /* SceneDelegate.swift */,
 				C002023D28E98CAC00DA43F8 /* LoginViewController.swift */,
 				C002024D28E9942500DA43F8 /* WelcomeViewController.swift */,
+				C0C904C328EA03D20086F29D /* GradientView.swift */,
 				C002023F28E98CAC00DA43F8 /* Main.storyboard */,
 				C002024228E98CAD00DA43F8 /* Assets.xcassets */,
 				C002024428E98CAD00DA43F8 /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				C002023E28E98CAC00DA43F8 /* LoginViewController.swift in Sources */,
 				C002024E28E9942500DA43F8 /* WelcomeViewController.swift in Sources */,
+				C0C904C428EA03D20086F29D /* GradientView.swift in Sources */,
 				C002023A28E98CAC00DA43F8 /* AppDelegate.swift in Sources */,
 				C002023C28E98CAC00DA43F8 /* SceneDelegate.swift in Sources */,
 			);
